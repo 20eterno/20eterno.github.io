@@ -63,6 +63,7 @@
             width: 100%;
             margin-bottom: 10px;
             border-radius: 5px; /* Bordes redondeados */
+            /* Se elimina el placeholder, por lo tanto no hay texto visible */
         }
 
         /* Para las partículas del fondo */
@@ -75,7 +76,7 @@
             z-index: 0;
         }
 
-        /* Para las partículas del cursor */
+        /* Para las partículas que siguen el cursor */
         #app canvas {
             display: block;
             position: absolute;
@@ -86,29 +87,26 @@
             height: 100%;
         }
 
-        /* Ocultar el iframe de YouTube */
-        #bg iframe {
+        /* Estilos para el iframe */
+        #video-iframe {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            pointer-events: none;  /* No permitirá interactuar con el video */
+            z-index: -1; /* Coloca el video detrás de los otros elementos */
+            pointer-events: none; /* Asegura que el video no interfiera con la interacción del usuario */
         }
     </style>
 </head>
 <body>
-    <div id="bg">
-        <!-- Aquí está el iframe de YouTube -->
-        <!-- Si prefieres música en lugar de video, puedes incluir un archivo de audio -->
-        <audio id="background-audio" autoplay loop>
-            <source src="20eterno.github.io/zundada.mp3" type="audio/mp3">
-            Your browser does not support the audio element.
-        </audio>
-    </div> <!-- Fondo de partículas -->
+    <div id="bg"></div> <!-- Fondo de partículas -->
     <div id="app">
         <canvas></canvas> <!-- Canvas para partículas que siguen el cursor -->
         <img src="20eterno.png" alt="20 Eterno" id="logo">
+        
+        <!-- Video de YouTube en iframe -->
+        <iframe id="video-iframe" width="100%" height="100%" src="https://www.youtube.com/embed/fECN5GY8eo0?autoplay=1&mute=1&loop=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
  
         <!-- Cuadro de texto para ingresar la contraseña -->
         <div id="password-box">
