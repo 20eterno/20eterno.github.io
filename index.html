@@ -63,7 +63,6 @@
             width: 100%;
             margin-bottom: 10px;
             border-radius: 5px; /* Bordes redondeados */
-            /* Se elimina el placeholder, por lo tanto no hay texto visible */
         }
 
         /* Para las partículas del fondo */
@@ -76,7 +75,7 @@
             z-index: 0;
         }
 
-        /* Para las partículas que siguen el cursor */
+        /* Para las partículas del cursor */
         #app canvas {
             display: block;
             position: absolute;
@@ -87,7 +86,19 @@
             height: 100%;
         }
 
-        
+        /* Estilo para el contenedor del video */
+        #video-container {
+            margin-top: 20px; /* Ajusta la posición del video con respecto al contenido */
+            width: 320px; /* Establece el tamaño del video */
+            height: 180px; /* Establece el tamaño del video */
+            display: flex;
+            justify-content: center;
+        }
+
+        #video-container iframe {
+            width: 100%; /* Ajusta el video al tamaño del contenedor */
+            height: 100%; /* Ajusta la altura del video al contenedor */
+        }
     </style>
 </head>
 <body>
@@ -95,14 +106,12 @@
     <div id="app">
         <canvas></canvas> <!-- Canvas para partículas que siguen el cursor -->
         <img src="20eterno.png" alt="20 Eterno" id="logo">
-        
-        <!-- Video de YouTube en iframe -->
-        <audio controls >
-            <source src="zundada.mp3"
-        </audio>
-            
-        </audio>
  
+        <!-- Video de YouTube insertado -->
+        <div id="video-container">
+            <iframe src="https://www.youtube.com/embed/TU_URL_DEL_VIDEO" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        
         <!-- Cuadro de texto para ingresar la contraseña -->
         <div id="password-box">
             <input type="text" id="password-input"> <!-- El placeholder se ha eliminado -->
