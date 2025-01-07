@@ -100,7 +100,11 @@
 <body>
     <div id="bg">
         <!-- Aquí está el iframe de YouTube -->
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/mDdCyHgq8c4?autoplay=1&mute=0&loop=1&playlist=mDdCyHgq8c4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <!-- Si prefieres música en lugar de video, puedes incluir un archivo de audio -->
+        <audio id="background-audio" autoplay loop>
+            <source src="20eterno.github.io/zundada.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
     </div> <!-- Fondo de partículas -->
     <div id="app">
         <canvas></canvas> <!-- Canvas para partículas que siguen el cursor -->
@@ -227,4 +231,3 @@
     </script>
 </body>
 </html>
-
