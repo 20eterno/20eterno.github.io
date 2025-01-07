@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20 Eterno</title>
+
+    <!-- STYLESHEET -->
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #000;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            overflow: hidden;
+            padding: 0 20px;
+        }
+
+        #app {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            padding-top: 20px;
+        }
+
+        #logo {
+            max-width: 550px;
+            height: auto;
+            filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+            z-index: 2;
+            margin-bottom: 40px; /* Más espacio debajo del logo */
+        }
+
+        #password-box {
+            width: 100%;
+            max-width: 300px;  /* Ancho del cuadro de texto */
+            padding: 10px;
+            text-align: center;
+            z-index: 2;
+            margin-top: 600px;  /* Mucho más espacio entre el logo y el cuadro de texto */
+        }
+
+        #password-input {
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);  /* Borde del cuadro de texto */
+            background-color: rgba(0, 0, 0, 0.5);  /* Fondo más oscuro */
+            color: #fff;
+            outline: none;
+            width: 100%;
+            margin-bottom: 10px;
+            border-radius: 5px; /* Bordes redondeados */
+            /* Se elimina el placeholder, por lo tanto no hay texto visible */
+        }
+
+        /* Para las partículas del fondo */
+        #bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 0;
+        }
+
+        /* Para las partículas del cursor */
+        #app canvas {
+            display: block;
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="bg"></div> <!-- Fondo de partículas -->
+    <div id="app">
+        <canvas></canvas> <!-- Canvas para partículas que siguen el cursor -->
+        <img src="20eterno.png" alt="20 Eterno" id="logo">
+ 
+        <!-- Cuadro de texto para ingresar la contraseña -->
+        <div id="password-box">
+            <input type="text" id="password-input"> <!-- El placeholder se ha eliminado -->
+        </div>
+    </div>
+
+    <!-- Primero, el script de las partículas del fondo -->
+    <script src="js/particles.min.js"></script>
+    <script>
+        // Configuración de las partículas de fondo
+        particlesJS('bg', {
+            particles: {
+                number: {
+                    value: 200,
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+                color: {
+                    value: "#ffffff"
+                },
+                shape: {
+                    type: "circle",
+                    stroke: {
+                        width: 0,
+                        color: "#000000"
+                    }
+                },
+                opacity: {
+                    value: 0.5,
+                    random: true,
+                    anim: {
+                        enable: true,
+                        speed: 0.1,
+                        opacity_min: 0.2,
+                        sync: false
+                    }
+                },
+                size: {
+                    value: 1,
+                    random: true,
+                    anim: {
+                        enable: true,
+                        speed: 1,
+                        size_min: 0.5,
+                        sync: false
+                    }
+                },
+                line_linked: {
+                    enable: false,
+                    distance: 150,
+                    color: "#ffffff",
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 0.1,
+                    direction: "none",
+                    random: false,
+                    straight: false,
+                    out_mode: "out",
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: {
+                        enable: false,
+                        mode: "repulse"
+                    },
+                    onclick: {
+                        enable: false,
+                        mode: "push"
+                    }
+                }
+            }
+        });
+    </script>
+
+    <!-- Segundo, el script de las partículas que siguen el cursor -->
+    <script type="module">
+        import { particlesCursor } from 'https://unpkg.com/threejs-toys@0.0.8/build/threejs-toys.module.cdn.min.js';
+
+        const pc = particlesCursor({
+            el: document.getElementById('app'),
+            gpgpuSize: 100,
+            colors: [0xee0be4, 0xee0be4], // Colores de las partículas (cian y azul)
+            color: 0xff0000,
+            coordScale: 0.3,
+            noiseIntensity: 0.001,
+            noiseTimeCoef: 0.0001,
+            pointSize: 0.5, // Grosor de las partículas
+            pointDecay: 0.0008,
+            sleepRadiusX: 250,
+            sleepRadiusY: 250,
+            sleepTimeCoefX: 0.002,
+            sleepTimeCoefY: 0.002
+        });
+    </script>
+
+    <!-- Lógica para el input y redirección -->
+    <script>
+        const correctPassword = "secreto";  // Cambia "secreto" por la palabra que desees
+        const input = document.getElementById("password-input");
+
+        input.addEventListener("keydown", function(event) {
+            if (event.key === "Enter") {  // Verifica si la tecla presionada es Enter
+                const enteredText = input.value.trim().toLowerCase();
+                if (enteredText === correctPassword) {
+                    window.location.href = "otra-pagina.html";  // Redirige a otra página si la palabra es correcta
+                } else {
+                    alert("no es :(");
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+
