@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20 Eterno</title>
+
+    <!-- STYLESHEET -->
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #000;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        h1 {
+            color: #fff;
+            font-size: 26px;
+            text-transform: uppercase;
+            text-align: center;
+            padding-top: 70vh;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.35);
+            z-index: 2;
+            position: relative;
+        }
+
+        #bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            z-index: 0;
+        }
+
+        #logo {
+            position: absolute;
+            top: 14%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            max-width: 500px;
+            height: auto;
+            filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+        }
+
+        #password-box {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            padding: 5px 10px;
+            z-index: 2;
+        }
+
+        #password-input {
+            padding: 8px 12px;
+            border: none;
+            background-color: transparent;
+            color: #fff;
+            font-size: 14px;
+            width: 200px;
+            outline: none;
+            transition: background-color 0.3s ease;
+        }
+
+        #password-input:focus {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        #error-message {
+            color: #ff0000;
+            font-size: 14px;
+            text-align: center;
+            margin-top: 10px;
+            visibility: hidden;
+        }
+
+        #player-container {
+            position: absolute;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            z-index: 2;
+        }
+
+        #player {
+            width: 150px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="bg"></div>
+    <h1>Tu eres mi mundo y lo demás no importa</h1>
+    <img src="20eterno.png" alt="20 Eterno" id="logo">
+
+    <div id="password-box">
+        <input type="text" id="password-input">
+    </div>
+    <div id="error-message">La palabra clave es incorrecta.</div>
+
+    <!-- Contenedor del reproductor -->
+    <div id="player-container">
+        <div id="player"></div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script src="js/particles.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script>
+        // Configuración de partículas
+        particlesJS.load('bg', 'path/to/particles-config.json', function() {
+            console.log('Particles.js config loaded.');
+        });
+
+        // La palabra clave correcta
+        const correctPassword = "miClaveSecreta"; // Cambia esta palabra por la que tú desees
+
+        // Función para redirigir al presionar Enter
+        document.getElementById('password-input').addEventListener('keydown', function(event) {
+            const passwordInput = document.getElementById('password-input').value;
+            const errorMessage = document.getElementById('error-message');
+
+            if (event.key === 'Enter') {
+                if (passwordInput === correctPassword) {
+                    errorMessage.style.visibility = 'hidden';
+                } else {
+                    errorMessage.style.visibility = 'visible';
+                }
+            }
+        });
+
+        // Cargar la API de YouTube IFrame Player
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        var player;
+        function onYouTubeIframeAPIReady() {
+            // Crear el reproductor al cargar la página
+            player = new YT.Player('player', {
+                videoId: 'mDdCyHgq8c4', // Cambia este ID por el del video deseado
+                playerVars: {
+                    autoplay: 1, // Reproducir automáticamente
+                    controls: 0, // Ocultar controles
+                    showinfo: 0, // Ocultar información
+                    modestbranding: 1, // Reducir el branding
+                    rel: 0, // No mostrar videos relacionados
+                    loop: 1, // Repetir video
+                    playlist: 'mDdCyHgq8c4' // Necesario para el loop
+                },
+                events: {
+                    onReady: function(event) {
+                        event.target.setVolume(50); // Ajustar el volumen
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>
