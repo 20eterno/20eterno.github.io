@@ -3,7 +3,7 @@
 particlesJS("bg", {
     "particles": {
       "number": {
-        "value": 90,
+        "value": 85,
         "density": {
           "enable": true,
           "value_area": 315
@@ -56,7 +56,7 @@ particlesJS("bg", {
       },
       "move": {
         "enable": true,
-        "speed": 0.03,
+        "speed": 0.02,
         "direction": "none",
         "random": true,
         "straight": false,
