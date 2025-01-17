@@ -28,34 +28,36 @@
             justify-content: center;
             align-items: center;
             width: 100%;
-            max-width: 400px; /* Se redujo el tamaño máximo */
-            margin: 10px auto; /* Menos espacio en los márgenes */
-            border: 3px solid black; /* Marco un poco más pequeño */
+            max-width: 560px; /* Ajustado para el tamaño de YouTube */
+            height: 315px; /* Altura estándar de un video incrustado */
+            margin: 10px auto;
+            border: 3px solid black;
             background-color: #000;
-            padding: 6px; /* Menos padding */
+            padding: 6px;
             box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
         }
-        video {
+        .video-container iframe {
             width: 100%;
-            height: auto;
+            height: 100%;
+            border: none;
         }
         .button {
             margin-top: 20px;
             padding: 14px 30px;
             font-size: 1.2rem;
-            background: rgba(0, 0, 0, 0.5); /* Fondo más transparente */
+            background: rgba(0, 0, 0, 0.5);
             color: white;
             border: 2px solid white;
-            border-radius: 25px; /* Esquinas más redondeadas */
+            border-radius: 25px;
             cursor: pointer;
-            transition: all 0.4s ease; /* Transición más suave */
-            box-shadow: 0 0 12px rgba(0, 0, 0, 0.3); /* Sombra sutil */
+            transition: all 0.4s ease;
+            box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
         }
         .button:hover {
-            background: rgba(255, 255, 255, 0.4); /* Efecto hover más suave */
+            background: rgba(255, 255, 255, 0.4);
             color: black;
             border: 2px solid black;
-            box-shadow: 0 0 16px rgba(0, 0, 0, 0.5); /* Sombra más marcada */
+            box-shadow: 0 0 16px rgba(0, 0, 0, 0.5);
         }
         .text-box {
             display: none;
@@ -63,13 +65,13 @@
             padding: 15px;
             width: 80%;
             max-width: 600px;
-            background-color: rgba(255, 255, 255, 0.8); /* Fondo transparente */
-            border: 2px solid rgba(0, 0, 0, 0.2); /* Borde más suave */
-            text-align: left; /* Alineación izquierda para respetar los saltos de línea */
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 2px solid rgba(0, 0, 0, 0.2);
+            text-align: left;
             margin-left: auto;
             margin-right: auto;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.4); /* Sombra más suave */
-            white-space: pre-line; /* Respetar los saltos de línea y los espacios */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+            white-space: pre-line;
         }
     </style>
     <script>
@@ -88,47 +90,15 @@
         <span class="black">20.</span><span class="white">01</span><span class="black">.25</span>
     </div>
     <div class="video-container">
-        <video controls>
-            <source src="video.mp4" type="video/mp4">
-            Tu navegador no soporta el elemento de video.
-        </video>
+        <iframe 
+            src="https://www.youtube.com/embed/lbcErru-BaA" 
+            allowfullscreen>
+        </iframe>
     </div>
     <button class="button" onclick="toggleTextBox()">20 ETERNO</button>
     <div id="textBox" class="text-box">
-       Hoy hace 13 años del día en el que mas suerte he tenido.
-Hace 13 años, un 20/01/12, conocí al amor de mi vida.
-Desde aquel día y aunque hemos pasado mil cosas me he acordado de ti cada día de mi vida. No se a quien tengo que agradecer por ponerte en el otro extremo del hilo rojo, pero le estaré siempre agradecido. Aunque a quien más le tengo que agradecer cosas es a ti...
-Tu me has hecho desde que era pequeño y gran parte de lo que soy es por ti. Directa o indirectamente me has enseñado y me enseñas muchísimas cosas y haces que me esfuerce siempre en mejorar.
-Me has enseñado a querer de verdad y lo que es el amor, a ser una persona tranquila, a sacar mi lado mas comunicativo, a trabajar mis inseguridades...
-Solo tú puedes tener esta version de mi porque tu eres el amor de mi vida y necesito ser el mejor para estar a tu lado siempre y hacerte feliz.
-
-Gracias por ser tan buena y tener tanta paciencia conmigo. Por estar aquí, porque se que no me merezco tenerte. Tengo muchísima suerte. Te prometo que nunca te voy a fallar, siempre voy a estar para ti y daré todo por ti
-
-Gracias también por cuidarme como nadie y entenderme cuando no me entiendo ni yo, por preocuparte por mi, por quererme tanto y por esforzarte tanto tú también en mejorar, porque aunque no lo veas y no te des valor, yo si lo veo y te lo doy. 
-Estoy muy orgulloso de ti, en todos los aspectos. Eres simplemente la mejor persona que existe y me da mucha rabia cuando hablas tan mal de ti, porque no tienes ni un poco de razón. Y si hablamos de físico... simplemente la chica mas guapa del mundo. Tu carita, tus ojitos, tus cejitas siempre tan bien peinadas (que menuda paciencia esperando siempre que salimos a que te las peines!!! pero realmente hasta eso me encanta de ti, me quedo embobado viéndote haciendo cualquier cosa), tu boca que es una barbaridad, tu pelo (que ya te ha crecido mucho!!! está en subidón como dirían por ahí), tu cuerpo... Me encantas amor, no hay nada que no me guste de ti.
-
-Gracias por hacerme el chico mas feliz del mundo, gracias por hacer que me levante cada día sonriendo, gracias por ayudarme a mejorar y enseñarme tantas cosas, gracias por estar ahí siempre, gracias por esforzarte por mi. Simplemente GRACIAS mi amor
-
-Quiero que te sientas orgullosa de mi, de la persona que soy y que puedas decir que tienes el mejor novio del mundo. Y se que no me exijes muchas cosas, yo mismo me las exijo a mi mismo porque es lo que tu te mereces y quiero estar a tu altura, aunque eso es imposible
-Lucho cada día y me esfuerzo cada día para cumplir mi sueño, que eres tú. Eres todo lo que quiero. Quiero cuidarte, quiero hacerte la chica mas feliz del mundo, quiero ir a Madrid para vivir contigo, quiero que cumplamos nuestros objetivos, que tengamos nuestra casita, que nos casemos, que nuestros hijos tengan tu carita aunque así me sería imposible decirles que no a algo, que tengamos a nuestros animales (aunque todos es un poco complicado porque quieres una granja :$ pd: quiero mis peces!!), que todos los días disfrutemos el estar juntos, que tu carita sea lo ultimo que vea al irme a dormir y lo primero que vea al despertarme... Tú eres mi sueño amor y te prometo que voy a hacer todo para que todo esto se cumpla. Para mi no hay otra opción.
-
-Espero poder seguir haciendote feliz y espero saber hacer que cada dia te sientas un poquito mejor. Te prometi y te prometo que vamos a cambiar todo lo malo, nos lleve el tiempo que nos lleve pero siempre voy a estar a tu lado. Nunca voy a rendirme y siempre voy a intentar sacarte una sonrisa y hacer que te sientas mejor. Voy a conseguirlo si o si, lo se.
-
-Es algo que debes saber pequeña, que siempre voy a estar a tu lado pase lo que pase. En los dias malos estaré igual que en los buenos, o más aún, pero nunca pienses que porque estes mal o cualquier cosa yo te puedo dejar de querer. Al contrario, cuando expresas tus sentimientos y te abres y me cuentas como te sientes te quiero más aún si es que es posible. Pero tenlo claro, nunca nunca nunca me voy a ir de tu lado y siempre estaré encantado de estar contigo en cualquier situación. 
-
-Y es que me encanta estar contigo, es mi cosa favorita!!!. Me encanta pasar tiempo contigo, podría pasarme toda la vida simplemente en un sofa mirandote la carita y adorandote y sería el tio mas feliz del mundo. Me encanta ver cosas contigo, aunque ahora tenemos que buscar serie nueva porque nos hemos pulido la casa de papel en nada jajajaja. También me encanta pasear contigo, ir de tu manita a todos lados porque no te puedo soltar. Ir a sitios preciosos y conocer sitios nuevos contigo. Conducir contigo agarrados de la mano, mirarte cada rato tu carita. Si conduzco y no estás tú conmigo no es lo mismo. También me encanta preparar la comida y la cena juntos y reirnos mientras la hacemos. Nunca pensé que diría esto pero me encanta hasta por las mañanas verte tomar el café mientras fumas (aunque esto ultimo podríamos dejarlo solo en el café). Me encanta que seas mi estilista personal y me aconsejes con la ropa (tienes buen gusto lo reconozco), incluso acabar en el hospital contigo es otro rollo!!!! (aunque esto casi que también es mejor dejar de hacerlo). Me encanta TODO contigo mi amor, cualquier cosa que haga contigo se convierte automaticamente en la mejor del mundo. Siempre estoy feliz cuando estoy contigo, el tiempo se me pasa volando y nunca me he aburrido ni un segundo.
-
-En menos de 2 años estoy ahí contigo pequeña, nunca te voy a fallar a ninguna promesa. Quiero estar ya ahí contigo y no tener que separarme nunca mas de ti porque no pasa el tiempo cuando no estoy contigo, los días se hacen eternos y solo pienso en estar contigo todo el rato. Siempre me acuerdo de ti haga lo que haga y pienso que ojalá estuvieras aquí conmigo haciendo lo que sea. En menos de 2 años no nos volveremos a separar nunca mas mi vida.
-
-Ojalá algún día sepas todo lo que te quiero y siento por ti y te des cuenta de que nunca te dejaré de querer. Para mi solo existes tu, nadie más. Tú eres todo lo que quiero y voy a querer toda mi vida. Nunca ni un poco menos. Y siempre voy a estar contigo, nunca te voy a faltar.
-
-Daría mi vida por ti y para que tu fueses feliz
-Eres todo para mi, todo lo que quiero y todo lo que necesito
-Te amo mas que nada y me muero por ti Marina García. Eres mi sueño
-
-20 Eterno
-
-
+        <!-- Contenido del mensaje aquí -->
     </div>
 </body>
 </html>
+
