@@ -58,7 +58,7 @@
             left: 50%;
             transform: translateX(-50%);
             background-color: transparent;
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            border: 2px solid rgba(255, 255, 0.3);
             border-radius: 10px;
             padding: 5px 10px;
             z-index: 2;
@@ -126,8 +126,23 @@
             console.log('Particles.js config loaded.');
         });
 
-        // La palabra clave correcta
-        const correctPassword = "aun no jejeje"; //
+        // Contraseña ofuscada
+        const encryptedPassword = "a2lhcmFydWJlbg=="; // Contraseña ofuscada
+
+        // URL ofuscada en Base64
+        const encryptedURL = "aHR0cHM6Ly8yMGV0ZXJuby5naXRodWIuaW8vMjA="; // URL ofuscada
+
+        // Función para desencriptar la contraseña
+        function decryptPassword(encrypted) {
+            let decoded = atob(encrypted); // Decodificación Base64
+            return decoded;
+        }
+
+        // Función para desencriptar la URL
+        function decryptURL(encrypted) {
+            let decoded = atob(encrypted); // Decodificación Base64
+            return decoded;
+        }
 
         // Función para redirigir al presionar Enter
         document.getElementById('password-input').addEventListener('keydown', function(event) {
@@ -135,8 +150,11 @@
             const errorMessage = document.getElementById('error-message');
 
             if (event.key === 'Enter') {
-                if (passwordInput === correctPassword) {
-                    errorMessage.style.visibility = 'hidden';
+                const decryptedPassword = decryptPassword(encryptedPassword);
+                const decryptedURL = decryptURL(encryptedURL);
+
+                if (passwordInput === decryptedPassword) {
+                    window.location.href = decryptedURL; // Redirigir usando la URL desencriptada
                 } else {
                     errorMessage.style.visibility = 'visible';
                 }
@@ -173,3 +191,4 @@
     </script>
 </body>
 </html>
+
